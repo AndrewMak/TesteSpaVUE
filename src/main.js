@@ -4,10 +4,10 @@ import Meta from 'vue-meta'
 import App from './App.vue'
 import Post from './components/Post.vue'
 import Hello from './components/Hello.vue'
-
+import BootstrapVue from 'bootstrap-vue'
+Vue.use(BootstrapVue);
 Vue.use(Router)
 Vue.use(Meta)
-
 const router = new Router({
  routes: [
    {

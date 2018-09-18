@@ -3,22 +3,31 @@
     <header>
       <h1>Spa VUE</h1>
     </header>
-    <main>     
+    <main>
+
       <aside class="sidebar">
-         <div>Menu</div>
-        <ul>
-        <router-link
-            v-for="post in posts"
-            active-class="is-active"
-            class="link"
-            :to="{ name: 'post', params: { id: post.id } }">
-         <li> {{post.id}}. {{post.title}}</li>
-        </router-link>
-        </ul>
-      </aside>
-      <div class="content">
+              <div class="content">
         <router-view></router-view>
       </div>
+         <div class="col-md-3 mb-2">Menu</div>
+       <div class="card-columns">
+  <b-card v-for="post in posts"
+          :title="post.title"
+          img-src="https://picsum.photos/600/300/?image=25"
+          img-alt="Image"
+          img-top
+          tag="article"
+          style="max-width: 20rem;"
+          class="mb-2">
+    <p class="card-text">
+     {{post.body}}
+    </p>
+
+    <b-button href="#" :to="{ name: 'post', params: { id: post.id } }" variant="warning">Visualizar Post</b-button>
+  </b-card>
+</div>
+      </aside>
+
     </main>
   </div>
 </template>
@@ -53,11 +62,8 @@
   }
 </script>
 
-<style>
-.sidebar{
-display: block;
-float: left;
-width: 50%;
-
-}
+<style lang="scss">
+@import './assets/styles/variables';
+@import './assets/styles/bootstrap';
 </style>
+
